@@ -25,4 +25,4 @@ MCP Server 独立进程启动，用 Streamable HTTP 监听端口，四个电商�
 Agent 侧加了 ToolManager，启动时 HTTP 连 MCP Server，自动发现工具，把 MCP schema 转成 OpenAI 格式塞给模型。模型决定调工具后，ToolManager 转发给 MCP Server 执行
 ReAct 循环本身只改了两行——工具列表和调用入口换成 ToolManager 的统一接口
 为什么选 Streamable HTTP 不选 stdio？stdio 最简单但工具作为子进程跑，真实场景工具是独立部署的。HTTP 更贴近实际，而且天然支持多个 Agent 同时连一个 Server       
-接下来我要做的是 RAG，让 Agent 能检索商品库、FAQ、退换货政策，不再只靠工具返回的数据回答问题
+6接下来我要做的是 RAG，让 Agent 能检索商品库、FAQ、退换货政策，不再只靠工具返回的数据回答问题
